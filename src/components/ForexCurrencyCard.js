@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Icon } from "semantic-ui-react";
 
-export default function ForexCurrencyCard({ rate, removeCurrency }) {
+export default function ForexCurrencyCard({ rate, removeCurrencyFromList }) {
   let formatedRateTotal = new Intl.NumberFormat().format(rate.rateTotal);
   let formatedRateValue = new Intl.NumberFormat().format(rate.rateVal);
   return (
@@ -21,7 +21,7 @@ export default function ForexCurrencyCard({ rate, removeCurrency }) {
           <Icon
             name="trash alternate outline"
             style={{ cursor: "pointer" }}
-            onClick={() => removeCurrency(rate.name)}
+            onClick={() => removeCurrencyFromList(rate.name)}
             className="delete-icon"
           />
         </div>

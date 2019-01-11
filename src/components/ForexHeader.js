@@ -1,19 +1,25 @@
 import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { updateUSDValue } from '../actions/CurrencyActions';
 
-export default class ForexHeader extends Component {
+class ForexHeader extends Component {
 
 	state = {
 		val: 10.00
 	}
 
-	onChange = (e) => this.setState({ val: e.target.value});
+	onChange = (e) => {
+    this.setState({ val: e.target.value});
+    this.props.updateUSDValue(e.target.value);
+  } 
 
   render() {
     return (
       <Card.Content>
-        <Card.Header>
-          <p id="title">USD - United State Dollars</p>
+        {/* <Card.Header> */}
+          <p id="fa_title">USD - United State Dollars</p>
           <div className="flex-between">
             <h3 className="bold">USD</h3>
             <input
@@ -25,8 +31,20 @@ export default class ForexHeader extends Component {
 							className="usd"
             />
           </div>
-        </Card.Header>
+        {/* </Card.Header> */}
       </Card.Content>
     );
   }
 }
+
+ForexHeader.propTypes = {
+  updateUSDValue: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => {
+  return {
+    state: state
+  };
+};
+
+export default connect(mapStateToProps, { updateUSDValue })(ForexHeader);

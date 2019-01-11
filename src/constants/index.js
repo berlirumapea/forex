@@ -10,4 +10,4 @@ export const Currencies = [
   { key: "KRW", value: "KRW", flag: "kr", text: "KRW", desc: "South Korean Won" }
 ];
 
-export const DefaultSymbols = ["CAD", "IDR", "GBP"];
+export const DefaultSymbols = ["CAD", "IDR", "GBP", "CHF", "SGD", "INR", "MYR", "KRW"];

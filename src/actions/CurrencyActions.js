@@ -1,7 +1,7 @@
 import 'cross-fetch/polyfill';
 import { DefaultSymbols } from '../constants'
 
-import { ADD_CURRENCY, FETCH_CURRENCY_REQUEST, FETCH_CURRENCY_SUCCESS, FETCH_CURRENCY_FAILURE, REMOVE_CURRENCY, UPDATE_USD_VALUE } from "./types";
+import { ADD_CURRENCY, FETCH_CURRENCY_REQUEST, FETCH_CURRENCY_SUCCESS, FETCH_CURRENCY_FAILURE, REMOVE_CURRENCY,  USD_VAL_ONCHANGE } from "./types";
 
 function fetchCurrencyRequest() {
   return {
@@ -23,13 +23,13 @@ function fetchCurrencyFailure(err) {
   }
 }
 
-export function fetchCurrency(usdVal) {
+export function fetchCurrency() {
   return async dispatch => {
     dispatch(fetchCurrencyRequest())
     try {
       const res = await fetch(`https://api.exchangeratesapi.io/latest?base=USD&symbols=${DefaultSymbols.join(',')}`);
       const data = await res.json();
-      return dispatch(fetchCurrencySuccess(data, usdVal));
+      return dispatch(fetchCurrencySuccess(data));
     }
     catch (err) {
       return dispatch(fetchCurrencyFailure(err));
@@ -52,7 +52,7 @@ export function removeCurrency(symbol) {
 
 export function updateUSDValue(val) {
   return {
-    type: UPDATE_USD_VALUE,
+    type: USD_VAL_ONCHANGE,
     payload: val
   }
 }

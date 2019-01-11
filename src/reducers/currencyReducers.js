@@ -4,15 +4,14 @@ import {
   REMOVE_CURRENCY,
   USD_VAL_ONCHANGE
 } from "../actions/types";
-import { Currencies, DefaultSymbols } from "../constants";
+import { Currencies } from "../constants";
 
 const initialState = {
   rates: [],
-  symbols: [...DefaultSymbols],
   usd_value: 10.0
 };
 
-export const currencyReducers = (state = initialState, action) => {
+export const currencyReducers = (state, action) => {
   switch (action.type) {
     case FETCH_CURRENCY_SUCCESS:
       return {
@@ -54,14 +53,11 @@ function updateCurrencyToFalse(rates, symbol) {
 }
 
 function updateCurrencyToTrue(rates, symbol) {
-  let mappedRates = rates.map(rate => {
-    if (rate.name === symbol && !rate.show) {
-      return { ...rate, show: true };
-    } else {
-      return rate;
-    }
-  });
-  return mappedRates;
+
+  let currency = rates.find(rate => rate.name === symbol);
+  let filteredRates = rates.filter(rate => rate.name !== symbol);
+  let addedCurrencyToRates = [...filteredRates, {...currency, show: true}]
+  return addedCurrencyToRates;
 }
 
 function manipulatedRates(data) {
@@ -72,7 +68,7 @@ function manipulatedRates(data) {
         desc: Currencies.find(curr => curr.key === rate).desc,
         rateVal: data.rates[rate],
         rateTotal: data.rates[rate] * initialState.usd_value,
-        show: true
+        show: false
       }
   );
   return rates;

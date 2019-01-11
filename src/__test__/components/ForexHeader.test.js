@@ -5,7 +5,7 @@ import { shallow } from "enzyme";
 describe("<ForexHeader /> static data testing", () => {
   it("renders a paragraph element and has value of USD - United State Dollars", () => {
     const wrapper = shallow(<ForexHeader />);
-    const p = wrapper.find("#title");
+    const p = wrapper.find("#fa_title");
     expect(p).toBeDefined();
     expect(p.text()).toMatchSnapshot();
   });
