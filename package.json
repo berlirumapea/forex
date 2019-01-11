@@ -16,7 +16,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --verbose",
+    "test": "react-scripts test",
+    "test:verbose": "react-scripts test --watch --verbose false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
