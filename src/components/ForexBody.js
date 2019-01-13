@@ -33,12 +33,14 @@ class ForexBody extends Component {
   }
 }
 
+
 ForexBody.propTypes = {
   fetchCurrency: PropTypes.func.isRequired,
   removeCurrency: PropTypes.func.isRequired,
   rates: PropTypes.array.isRequired
 };
 
+// get current state from state tree and map it to props 
 const mapStateToProps = state => {
   return {
     rates: state.rates || []

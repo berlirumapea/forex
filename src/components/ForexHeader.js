@@ -41,6 +41,7 @@ ForexHeader.propTypes = {
   updateUSDValue: PropTypes.func.isRequired,
 };
 
+// get current state from state tree and map it to props 
 const mapStateToProps = state => {
   return {
     state: state

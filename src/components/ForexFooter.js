@@ -70,6 +70,7 @@ ForexFooter.propTypes = {
   addCurrency: PropTypes.func.isRequired
 };
 
+// get current state from state tree and map it to props 
 const mapStateToProps = state => {
   return {
     rates: state.rates,
