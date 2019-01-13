@@ -23,9 +23,7 @@ function fetchCurrencyFailure(err) {
   }
 }
 
-/**
- * @returns
- */
+
 export function fetchCurrency() {
   return async dispatch => {
     dispatch(fetchCurrencyRequest())

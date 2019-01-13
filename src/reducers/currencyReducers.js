@@ -16,6 +16,7 @@ const initialState = {
  * @param {Object} state state tree 
  * @param {Object} action action dispatched from action creators 
  */
+
 export const currencyReducers = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CURRENCY_SUCCESS:
