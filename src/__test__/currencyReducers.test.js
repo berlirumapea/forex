@@ -9,7 +9,6 @@ import { DefaultSymbols } from "../constants";
 
 let initialState = {
   rates: [],
-  symbols: [...DefaultSymbols],
   usd_value: 10.0
 };
 
@@ -33,7 +32,7 @@ describe("reducers", () => {
             desc: "British Pounds",
             rateVal: 0.7839011704,
             rateTotal: 0.7839011704 * initialState.usd_value,
-            show: true
+            show: false
           }
         ]
       };

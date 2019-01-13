@@ -11,7 +11,7 @@ const initialState = {
   usd_value: 10.0
 };
 
-export const currencyReducers = (state, action) => {
+export const currencyReducers = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CURRENCY_SUCCESS:
       return {

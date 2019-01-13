@@ -7,7 +7,10 @@ export const Currencies = [
   { key: "SGD", value: "SGD", flag: "sg", text: "SGD", desc: "Singapore Dollar" },
   { key: "INR", value: "INR", flag: "in", text: "INR", desc: "Indian Rupee" },
   { key: "MYR", value: "MYR", flag: "my", text: "MYR", desc: "Malaysian Ringgit" },
-  { key: "KRW", value: "KRW", flag: "kr", text: "KRW", desc: "South Korean Won" }
+  { key: "KRW", value: "KRW", flag: "kr", text: "KRW", desc: "South Korean Won" },
+  { key: "HUF", value: "HUF", flag: "hu", text: "HUF", desc: "Hungarian Forint" },
+  { key: "PHP", value: "PHP", flag: "ph", text: "PHP", desc: "Philippine Peso" },
+  { key: "RUB", value: "RUB", flag: "ru", text: "RUB", desc: "Russian Ruble" },
 ];
 
-export const DefaultSymbols = ["CAD", "IDR", "GBP", "CHF", "SGD", "INR", "MYR", "KRW"];
+export const DefaultSymbols = ["CAD", "IDR", "GBP", "CHF", "SGD", "INR", "MYR", "KRW", "HUF", "PHP", "RUB"];

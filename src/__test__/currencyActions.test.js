@@ -58,10 +58,10 @@ describe("actions creator", () => {
 		expect(store.getActions()).toEqual(expectedActions);
 	})
 
-	it("should dispatch UPDATE_USD_VALUE action payload of USD value", () => {
+	it("should dispatch USD_VAL_ONCHANGE action payload of USD value", () => {
 
 		const expectedActions = [
-			{ type: types.UPDATE_USD_VALUE, payload: 5.00}
+			{ type: types.USD_VAL_ONCHANGE, payload: 5.00}
 		];
 
 		store.dispatch(updateUSDValue(5.00));

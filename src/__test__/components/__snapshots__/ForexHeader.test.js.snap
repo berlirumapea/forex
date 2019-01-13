@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<ForexHeader /> static data testing renders a paragraph element and has value of USD - United State Dollars 1`] = `"USD - United State Dollars"`;
-
-exports[`<ForexHeader /> static data testing renders h3 element and has value of USD 1`] = `"USD"`;
