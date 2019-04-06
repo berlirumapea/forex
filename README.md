@@ -1,6 +1,6 @@
 # Forex App
 
-Forex App is a website app that shows some currencies rates based on USD created with React with Redux as state management and Semantic UI as UI Framework
+Forex App is a website app that shows some currencies rates based on USD created with React with Redux as state management and Semantic UI as UI Framework. `switch to 'hooks' branch to see an implementation with react hooks`
 
 ### Project Structure
 - `./public/index.html` is the main page template.<br />
