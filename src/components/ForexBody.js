@@ -1,38 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card } from "semantic-ui-react";
 import ForexCurrencyCard from "./ForexCurrencyCard";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { fetchCurrency, removeCurrency } from "../actions/CurrencyActions";
 
-class ForexBody extends Component {
-  componentDidMount() {
-    this.props.fetchCurrency();
+function ForexBody({ fetchCurrency, removeCurrency, rates }) {
+  React.useEffect(() => {
+    fetchCurrency();
+  }, []);
+
+  function removeCurrencyFromList(sym) {
+    removeCurrency(sym);
   }
 
-  removeCurrencyFromList = symbol => {
-    this.props.removeCurrency(symbol);
-  };
-
-  render() {
-    return (
-      <Card.Content className="list-container">
-        {this.props.rates &&
-          this.props.rates.map(
-            rate =>
-              rate.show && (
-                <ForexCurrencyCard
-                  rate={rate}
-                  removeCurrencyFromList={this.removeCurrencyFromList}
-                  key={rate.name}
-                />
-              )
-          )}
-      </Card.Content>
-    );
-  }
+  return (
+    <Card.Content className="list-container">
+      {rates &&
+        rates.map(
+          rate =>
+            rate.show && (
+              <ForexCurrencyCard
+                rate={rate}
+                removeCurrencyFromList={removeCurrencyFromList}
+                key={rate.name}
+              />
+            )
+        )}
+    </Card.Content>
+  );
 }
-
 
 ForexBody.propTypes = {
   fetchCurrency: PropTypes.func.isRequired,
@@ -40,7 +37,6 @@ ForexBody.propTypes = {
   rates: PropTypes.array.isRequired
 };
 
-// get current state from state tree and map it to props 
 const mapStateToProps = state => {
   return {
     rates: state.rates || []
